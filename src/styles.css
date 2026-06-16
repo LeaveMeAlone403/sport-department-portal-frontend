@@ -1,0 +1,624 @@
+/* ================= CSS VARIABLES ================= */
+:root {
+    --primary-color: #0d47a1;
+    --primary-dark: #002171;
+    --secondary-color: #ff9800;
+    --text-main: #333333;
+    --text-muted: #666666;
+    --bg-main: #ffffff;
+    --bg-light: #f4f6f9;
+    --border-color: #e0e0e0;
+    --radius: 10px; /* Трохи більший радіус для м'якості */
+    --shadow-sm: 0 2px 6px rgba(0,0,0,0.08);
+    --shadow-md: 0 6px 16px rgba(0,0,0,0.12);
+    --transition: all 0.3s ease;
+}
+
+/* ================= RESET & BASE ================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    /* Збільшуємо базовий розмір шрифту для всього сайту */
+    font-size: 17px;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: var(--text-main);
+    background-color: var(--bg-main);
+    line-height: 1.6;
+}
+
+.container {
+    width: 100%;
+    max-width: 1300px; /* Трохи ширший контейнер */
+    margin: 0 auto;
+    padding: 0 25px;
+}
+
+.section {
+    padding: 100px 0; /* Більше повітря між секціями */
+}
+
+.bg-light {
+    background-color: var(--bg-light);
+}
+
+.section-title {
+    font-size: 2.5rem; /* Збільшений заголовок секцій */
+    margin-bottom: 50px;
+    text-align: center;
+    position: relative;
+    color: var(--primary-color);
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 5px;
+    background-color: var(--secondary-color);
+    margin: 15px auto 0;
+    border-radius: 3px;
+}
+
+/* ================= BUTTONS ================= */
+.btn-primary, .btn-secondary {
+    display: inline-block;
+    padding: 14px 28px; /* Більші кнопки */
+    border: none;
+    border-radius: var(--radius);
+    font-weight: 600;
+    font-size: 1.1rem; /* Більший текст на кнопках */
+    cursor: pointer;
+    transition: var(--transition);
+    text-decoration: none;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+/* ================= HEADER & NAV ================= */
+.header {
+    background-color: var(--primary-color);
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow-md);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 85px; /* Більша висота шапки */
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.logo-img {
+    width: 55px; /* Більше лого */
+    height: 55px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.logo-container h1 {
+    font-size: 1.8rem; /* Більший текст логотипу */
+    margin: 0;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 35px;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+    font-size: 1.2rem; /* Більший шрифт меню */
+}
+
+.nav-menu a:hover {
+    color: var(--secondary-color);
+}
+
+/* ================= SLIDER ================= */
+.slider-section {
+    height: 600px; /* Вищий банер */
+    width: 100%;
+    position: relative;
+}
+
+.slide {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.slide-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 100%);
+    display: flex;
+    align-items: center;
+}
+
+.slide-title {
+    color: white;
+    font-size: 3.8rem; /* Масивніший головний заголовок */
+    max-width: 800px;
+    margin-bottom: 25px;
+    line-height: 1.15;
+}
+
+.slide-desc {
+    color: #f0f0f0;
+    font-size: 1.4rem; /* Збільшений опис */
+    max-width: 600px;
+    margin-bottom: 40px;
+}
+
+/* ================= ABOUT SECTION ================= */
+.about-content {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.about-text {
+    font-size: 1.3rem; /* Зручніший для читання текст */
+    color: var(--text-muted);
+    margin-bottom: 50px;
+    line-height: 1.8;
+}
+
+.about-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.stat-card {
+    background: white;
+    padding: 40px 30px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    border-bottom: 5px solid var(--secondary-color);
+}
+
+.stat-card h3 {
+    font-size: 3rem; /* Більші цифри статистики */
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.stat-card p {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+/* ================= GALLERY (CSS GRID) ================= */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); /* Більші фото */
+    gap: 25px;
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    cursor: pointer;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 300px; /* Вищі фотографії */
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    display: block;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.08);
+}
+
+.gallery-item figcaption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    color: white;
+    padding: 20px;
+    font-size: 1.1rem;
+    text-align: center;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover figcaption {
+    transform: translateY(0);
+}
+
+/* ================= NEWS (CAROUSEL) ================= */
+.slider-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    /* Дозволяємо тіням карток виходити за межі контейнера без обрізання */
+    overflow: visible;
+}
+
+.news-scroll-container {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    align-items: flex-start;
+    gap: 30px; /* Оптимальна відстань між картками */
+    /* Падінги зверху/знизу захищають тіні карток від обрізання при підйомі (hover) */
+    padding: 25px 20px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+
+    scrollbar-width: none; /* Приховуємо стандартний скроллбар */
+    -ms-overflow-style: none;
+}
+
+.news-scroll-container::-webkit-scrollbar {
+    display: none; /* Приховуємо скроллбар в Chrome/Safari */
+}
+
+.news-card {
+    background: white;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
+    flex: 0 0 400px; /* Значно ширші картки новий (було 350px) */
+    scroll-snap-align: start;
+    /* Захист від розриву контейнера аномально довгими словами або лінками */
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+.news-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.16);
+}
+
+.news-img-wrapper {
+    height: 240px; /* Більше прев'ю зображення */
+    overflow: hidden;
+}
+
+.news-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.news-card:hover .news-img-wrapper img {
+    transform: scale(1.03);
+}
+
+.news-content {
+    padding: 30px; /* Більший відступ всередині картки */
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Заповнює весь вертикальний простір картки */
+}
+
+.news-title {
+    font-size: 1.35rem; /* Збільшений заголовок новини */
+    margin-bottom: 12px;
+    color: var(--primary-dark);
+    line-height: 1.4;
+    font-weight: 700;
+
+    /* Обмеження тексту заголовка до 2-х рядків */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* Створює фіксований простір для 2-х рядків, щоб сітка кнопок не пливла */
+    min-height: 3.8rem;
+}
+
+.news-excerpt {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    margin-bottom: 25px;
+    line-height: 1.6;
+    flex-grow: 1; /* Рятує картки від різної висоти, якщо тексту мало */
+
+    /* Обмеження тексту опису до 3-х рядків */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-height: 5.1rem;
+}
+
+/* Перевизначення для розгорнутого тексту */
+.news-excerpt.expanded {
+    display: block; /* Знімаємо flex/box поведінку, потрібну для clamp */
+    -webkit-line-clamp: unset; /* Відключаємо ліміт рядків */
+    min-height: auto; /* Дозволяємо контейнеру рости за об'ємом тексту */
+}
+
+/* Стилізація стрілок */
+.arrow-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--bg-main);
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    font-size: 2.5rem; /* Більші стрілки */
+    width: 60px; /* Більший розмір кнопки */
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    padding-bottom: 6px;
+}
+
+.arrow-btn:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.arrow-btn:active {
+    transform: translateY(-50%) scale(0.9);
+}
+
+.arrow-btn.left {
+    left: -25px;
+}
+
+.arrow-btn.right {
+    right: -25px;
+}
+
+/* ================= CONTACTS & MAP ================= */
+.contacts-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    background: white;
+    padding: 50px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+}
+
+.contact-subtitle {
+    color: var(--text-muted);
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 15px; /* Більші поля вводу */
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    font-size: 1.1rem;
+    transition: border-color 0.3s;
+    font-family: inherit;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.form-alert {
+    margin-top: 20px;
+    padding: 18px;
+    border-radius: var(--radius);
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.alert-success {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #c8e6c9;
+}
+
+.alert-error {
+    background-color: #ffebee;
+    color: #c62828;
+    border: 1px solid #ffcdd2;
+}
+
+.map-container {
+    height: 100%;
+    min-height: 450px;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: var(--radius);
+}
+
+/* ================= FOOTER ================= */
+.footer {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    padding: 50px 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer-brand h3 {
+    color: var(--secondary-color);
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.footer-copyright {
+    text-align: right;
+    font-size: 1.1rem;
+}
+
+.footer-subtext {
+    color: #999;
+    font-size: 1rem;
+    margin-top: 8px;
+}
+
+/* ================= LOADER ================= */
+.global-loader {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* ================= MEDIA QUERIES ================= */
+@media (max-width: 992px) {
+    .contacts-wrapper {
+        grid-template-columns: 1fr;
+    }
+    .map-container {
+        min-height: 400px;
+    }
+    .slide-title {
+        font-size: 3rem;
+    }
+    .news-card {
+        flex: 0 0 350px;
+    }
+    .news-title {
+        min-height: 3.6rem;
+    }
+    .news-excerpt {
+        min-height: 4.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        height: auto;
+        padding: 20px 0;
+        gap: 15px;
+    }
+    .nav-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+    .about-stats-grid {
+        grid-template-columns: 1fr;
+    }
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer-copyright {
+        text-align: center;
+    }
+    .slide-title {
+        font-size: 2.2rem;
+    }
+    .arrow-btn {
+        display: none;
+    }
+    .news-card {
+        flex: 0 0 290px; /* Трохи компактніші картки на мобільних */
+    }
+    .news-title {
+        font-size: 1.2rem;
+        min-height: 3.4rem;
+    }
+    .news-excerpt {
+        font-size: 1rem;
+        min-height: 4.5rem;
+    }
+    .news-scroll-container {
+        padding: 15px 10px;
+        gap: 20px;
+    }
+}
